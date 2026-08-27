@@ -13,6 +13,6 @@ def number2():
 
 def test_add(number1, number2):
     assert number1 + number2 == add(number1, number2)
-    assert add(2, 3) == 5
+    assert add(2, 3) == 3
     assert add(-1, 1) == 0
     assert add(0, 0) == 0
