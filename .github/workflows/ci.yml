@@ -37,7 +37,8 @@ jobs:
 
       # Run PyTest
       - name: Run Tests
-        run: pytest -v    # v = verbose
+        run: 
+          python -m pytest -v    # v = verbose
 
   deploy:
     # Not works until Test is succeded
