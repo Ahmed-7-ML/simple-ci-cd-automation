@@ -12,7 +12,7 @@ on:
 jobs: 
   # Task Name
   test: 
-    # The type of machine to run the job on -> VM on Github
+    # (Runner) The type of machine to run the job on -> VM on Github
     runs-on: ubuntu-latest
     steps:
       # Load my code from repo into server
@@ -38,3 +38,19 @@ jobs:
       # Run PyTest
       - name: Run Tests
         run: pytest -v    # v = verbose
+
+  deploy:
+    # Not works until Test is succeded
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Production
+        run: |
+          echo "🚀 Starting deployment..."
+          echo "Environment: Production"
+          echo "Commit: ${{ github.sha }}"
+          echo "Deployed by: ${{ github.actor }}"
+          echo "✅ Deployment completed successfully!"
