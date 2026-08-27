@@ -39,6 +39,7 @@ jobs:
       - name: Run Tests
         run: 
           python -m pytest -v    # v = verbose
+          # PYTHONPATH=src pytest -v
 
   deploy:
     # Not works until Test is succeded
